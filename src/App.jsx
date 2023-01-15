@@ -8,16 +8,22 @@ const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-
+  const feedbackOptions = { good, neutral, bad };
   const handleFeedback = (e) => {
     const feedback = e.target.textContent.toLowerCase();
     switch (feedback) {
       case "good":
+        console.log(feedback);
         setGood((prev) => prev + 1);
+        break;
       case "bad":
+        console.log(feedback);
         setBad((prev) => prev + 1);
+        break;
       case "neutral":
+        console.log(feedback);
         setNeutral((prev) => prev + 1);
+        break;
     }
   };
 
@@ -31,7 +37,7 @@ const App = () => {
   return (
     <Section title="Please leave feedback">
       <FeedbackOptions
-        options={["good", "neutral", "bad"]}
+        options={Object.keys(feedbackOptions)}
         onLeaveFeedback={handleFeedback}
       />
 
